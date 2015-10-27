@@ -33,14 +33,24 @@ class RegistrationViewController: UIViewController {
         let username = name.text!
         let userEmail = email.text!
         let userPassword = password.text!
-        //let userConfirmationPassword = passwordConfirmation.text!
+        let userConfirmationPassword = passwordConfirmation.text!
+        
+        if (username.isEmpty || userEmail.isEmpty || userPassword.isEmpty || userConfirmationPassword.isEmpty){
+            displayMyAlertMessage("All fields are required")
+        }
+        
+        if (userPassword != userConfirmationPassword){
+            displayMyAlertMessage("Passwords do not match")
+            return
+        }
         
         //Send user data to server side
-        let myUrl = NSURL(string: "http://ec2-52-88-89-186.us-west-2.compute.amazonaws.com/userRegister.php")
+        let myUrl = NSURL(string: "http://ec2-52-88-89-186.us-west-2.compute.amazonaws.com/userRegister.php/")
         let request = NSMutableURLRequest(URL: myUrl!)
         request.HTTPMethod = "POST"
         
-        let postString = "nome=\(username)&email=\(userEmail)&password=\(userPassword)"
+        //let postString = "nome=\(username)&email=\(userEmail)&password=\(userPassword)"
+        let postString = "email=\(userEmail)&password=\(userPassword)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request){
@@ -50,49 +60,63 @@ class RegistrationViewController: UIViewController {
                 print("error=\(error)")
                 return
             }
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("******* response: = \(responseString)")
             
-            var err: NSError?
-            var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? NSDictionary
-            
-            if let parseJSON = json {
-                var resultValue = parseJSON["status"] as? String
-                println("result: \(resultValue)")
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
                 
-                var isUserRegistered : Bool = false
-                if(resultValue == "Success"){
-                    isUserRegistered = true
-                }
-                
-                var messageToDisplay: String = parseJSON["message"] as String!
-                if(!isUserRegistered){
-                    messageToDisplay = parseJSON["message"] as String!
-                }
-                
-                dispatch_async(dispatch_get_main_queue(),{
-                    //Display alert message with confirmation
+                if let parseJSON = json {
+                    let resultValue = parseJSON["status"] as? String
+                    print("result: \(resultValue)")
                     
-                    var myAlert = UIAlertController(title:"Alert", message:messageToDisplay, preferredStyle: UIAlertControllerStyle.Alert)
-                    
-                    let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.Default){ action in
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                    var isUserRegistered : Bool = false
+                    if(resultValue == "Success"){
+                        isUserRegistered = true
                     }
                     
-                    myAlert.addAction(okAction)
-                    self.presentViewController(myAlert, animated: true, completion: nil)
-                })
+                    var messageToDisplay: String = parseJSON["message"] as! String!
+                    if(!isUserRegistered){
+                        messageToDisplay = parseJSON["message"] as! String!
+                    }
+                    
+                    print(messageToDisplay)
+                    dispatch_async(dispatch_get_main_queue(),{
+                        //Display alert message with confirmation
+                        
+                        let myAlert = UIAlertController(title:"Alert", message:messageToDisplay, preferredStyle: UIAlertControllerStyle.Alert)
+                        
+                        let okAction = UIAlertAction(title:"OK", style: UIAlertActionStyle.Default){ action in
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                        }
+                        
+                        myAlert.addAction(okAction)
+                        self.presentViewController(myAlert, animated: true, completion: nil)
+                    })
+
+                }
+            }catch {
+                print(error)
             }
-            
         }
+        task.resume()
+        
+//        let myAlert = UIAlertController(title: "Success!", message: "Registration is sucessful", preferredStyle: UIAlertControllerStyle.Alert)
+//        let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.Default){ action in
+//            self.dismissViewControllerAnimated(true, completion: nil)
+//            
+//        }
+//        myAlert.addAction(okAction)
+//        self.presentViewController(myAlert, animated: true, completion: nil)
+        //displayMyAlertMessage("User registered sucessfully. Please log-in")
+        //performSegueWithIdentifier("registrationToLogin", sender: self)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func displayMyAlertMessage(userMessage: String) {
+        let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert);
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+        
+        myAlert.addAction(okAction)
+        self.presentViewController(myAlert, animated: true, completion: nil)
     }
-    */
-
 }
