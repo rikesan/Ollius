@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zsP-0w-daL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2405" y="-622"/>
+            <point key="canvasLocation" x="-2425" y="-1441"/>
         </scene>
         <!--Login-->
         <scene sceneID="iOm-LB-fyL">
@@ -35,38 +35,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyA-kQ-sy3">
-                                <rect key="frame" x="20" y="72" width="57" height="30"/>
+                                <rect key="frame" x="20" y="148" width="85" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Register"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Registrar"/>
                                 <connections>
-                                    <segue destination="khg-BA-5z9" kind="show" id="ybn-3i-QQS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0D-SE-M8g">
-                                <rect key="frame" x="24" y="110" width="38" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <segue destination="aM3-Nk-vQU" kind="show" id="kna-Ar-6va"/>
+                                    <segue destination="khg-BA-5z9" kind="presentation" modalPresentationStyle="fullScreen" id="ybn-3i-QQS"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite seu usuário ou e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qwt-25-yls">
-                                <rect key="frame" x="24" y="148" width="197" height="30"/>
+                                <rect key="frame" x="20" y="72" width="197" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite sua senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wnq-hX-6dv">
-                                <rect key="frame" x="24" y="186" width="197" height="30"/>
+                                <rect key="frame" x="20" y="110" width="197" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0D-SE-M8g">
+                                <rect key="frame" x="113" y="148" width="85" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.47609564374317792" green="0.89999605429292928" blue="0.35528751428594585" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Entrar"/>
+                                <connections>
+                                    <action selector="login" destination="P7U-ph-ge1" eventType="touchUpInside" id="0FK-7g-IRM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="AWv-5u-i6W"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="qwt-25-yls" id="bdg-XN-svm"/>
+                        <outlet property="passwordTextField" destination="Wnq-hX-6dv" id="5W8-4Z-K6H"/>
+                        <segue destination="aM3-Nk-vQU" kind="show" identifier="showTabBar" id="lye-jc-lwO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xV5-N7-kCz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,8 +122,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eh9-6x-cTY">
-                                <rect key="frame" x="20" y="239" width="61" height="30"/>
+                                <rect key="frame" x="20" y="239" width="85" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="0.564285169027678" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Cancelar"/>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite seu nome completo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4VF-zQ-6o0">
@@ -142,8 +153,10 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRP-mP-JLN">
-                                <rect key="frame" x="89" y="239" width="62" height="30"/>
+                                <rect key="frame" x="113" y="239" width="85" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Registrar"/>
                                 <connections>
                                     <action selector="register:" destination="khg-BA-5z9" eventType="touchUpInside" id="Tq4-8S-KGb"/>
@@ -224,11 +237,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="GA6-G7-xSc" kind="relationship" relationship="viewControllers" id="F7R-6S-rhr"/>
                         <segue destination="K6D-fC-th5" kind="relationship" relationship="viewControllers" id="Ofh-1z-DId"/>
                         <segue destination="XBp-81-NPK" kind="relationship" relationship="viewControllers" id="G4y-hu-B5X"/>
                         <segue destination="UCv-o9-JIP" kind="relationship" relationship="viewControllers" id="0o2-s0-XgA"/>
                         <segue destination="Sc8-Su-Xck" kind="relationship" relationship="viewControllers" id="sKs-yS-CEw"/>
-                        <segue destination="GA6-G7-xSc" kind="relationship" relationship="viewControllers" id="F7R-6S-rhr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jkq-hT-cNs" userLabel="First Responder" sceneMemberID="firstResponder"/>

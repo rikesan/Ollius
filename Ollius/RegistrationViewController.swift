@@ -36,11 +36,11 @@ class RegistrationViewController: UIViewController {
         let userConfirmationPassword = passwordConfirmation.text!
         
         if (username.isEmpty || userEmail.isEmpty || userPassword.isEmpty || userConfirmationPassword.isEmpty){
-            displayMyAlertMessage("All fields are required")
+            displayMyAlertMessage("Preencha todos os campos")
         }
         
         if (userPassword != userConfirmationPassword){
-            displayMyAlertMessage("Passwords do not match")
+            displayMyAlertMessage("As senhas devem ser iguais")
             return
         }
         
@@ -50,7 +50,7 @@ class RegistrationViewController: UIViewController {
         request.HTTPMethod = "POST"
         
         //let postString = "nome=\(username)&email=\(userEmail)&password=\(userPassword)"
-        let postString = "email=\(userEmail)&password=\(userPassword)"
+        let postString = "name=\(username)&email=\(userEmail)&password=\(userPassword)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request){
@@ -93,7 +93,6 @@ class RegistrationViewController: UIViewController {
                         myAlert.addAction(okAction)
                         self.presentViewController(myAlert, animated: true, completion: nil)
                     })
-
                 }
             }catch {
                 print(error)
