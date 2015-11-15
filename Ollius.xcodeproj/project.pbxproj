@@ -517,6 +517,7 @@
 				603A9FF61BDC336800CFCFD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		603A9FF71BDC336800CFCFD0 /* Build configuration list for PBXNativeTarget "OlliusTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +526,7 @@
 				603A9FF91BDC336800CFCFD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		603A9FFA1BDC336800CFCFD0 /* Build configuration list for PBXNativeTarget "OlliusUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +535,7 @@
 				603A9FFC1BDC336800CFCFD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
