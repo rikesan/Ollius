@@ -21,6 +21,9 @@
 		603AA00E1BDC43D400CFCFD0 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA00D1BDC43D400CFCFD0 /* ChatViewController.swift */; };
 		603AA0101BDC43EB00CFCFD0 /* RadarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA00F1BDC43EB00CFCFD0 /* RadarViewController.swift */; };
 		603AA0121BDC43FC00CFCFD0 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA0111BDC43FC00CFCFD0 /* ShoppingViewController.swift */; };
+		609ACDA21BFB50AE00D4BADB /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609ACDA11BFB50AE00D4BADB /* SearchTableViewController.swift */; };
+		609ACDA41BFB5C2600D4BADB /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609ACDA31BFB5C2600D4BADB /* TestTableViewController.swift */; };
+		609B804D1C02555F00B41744 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B804C1C02555F00B41744 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		603AA00D1BDC43D400CFCFD0 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		603AA00F1BDC43EB00CFCFD0 /* RadarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarViewController.swift; sourceTree = "<group>"; };
 		603AA0111BDC43FC00CFCFD0 /* ShoppingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
+		609ACDA11BFB50AE00D4BADB /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		609ACDA31BFB5C2600D4BADB /* TestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
+		609B804C1C02555F00B41744 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +122,9 @@
 				603A9FD31BDC336800CFCFD0 /* Main.storyboard */,
 				603AA0091BDC43AC00CFCFD0 /* ProfileViewController.swift */,
 				603AA00B1BDC43BE00CFCFD0 /* SearchViewController.swift */,
+				609ACDA11BFB50AE00D4BADB /* SearchTableViewController.swift */,
+				609B804C1C02555F00B41744 /* Product.swift */,
+				609ACDA31BFB5C2600D4BADB /* TestTableViewController.swift */,
 				603AA00D1BDC43D400CFCFD0 /* ChatViewController.swift */,
 				603AA00F1BDC43EB00CFCFD0 /* RadarViewController.swift */,
 				603AA0111BDC43FC00CFCFD0 /* ShoppingViewController.swift */,
@@ -278,13 +287,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				609ACDA41BFB5C2600D4BADB /* TestTableViewController.swift in Sources */,
 				603AA00C1BDC43BE00CFCFD0 /* SearchViewController.swift in Sources */,
 				603AA0121BDC43FC00CFCFD0 /* ShoppingViewController.swift in Sources */,
 				603A9FFE1BDC37D200CFCFD0 /* LoginViewController.swift in Sources */,
 				603A9FD21BDC336800CFCFD0 /* ViewController.swift in Sources */,
+				609B804D1C02555F00B41744 /* Product.swift in Sources */,
 				603AA00E1BDC43D400CFCFD0 /* ChatViewController.swift in Sources */,
 				603AA00A1BDC43AC00CFCFD0 /* ProfileViewController.swift in Sources */,
 				603AA0101BDC43EB00CFCFD0 /* RadarViewController.swift in Sources */,
+				609ACDA21BFB50AE00D4BADB /* SearchTableViewController.swift in Sources */,
 				603AA0001BDC3DB600CFCFD0 /* RegistrationViewController.swift in Sources */,
 				603A9FD01BDC336800CFCFD0 /* AppDelegate.swift in Sources */,
 			);
