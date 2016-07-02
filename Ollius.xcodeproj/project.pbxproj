@@ -17,13 +17,13 @@
 		603A9FFE1BDC37D200CFCFD0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603A9FFD1BDC37D200CFCFD0 /* LoginViewController.swift */; };
 		603AA0001BDC3DB600CFCFD0 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603A9FFF1BDC3DB600CFCFD0 /* RegistrationViewController.swift */; };
 		603AA00A1BDC43AC00CFCFD0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA0091BDC43AC00CFCFD0 /* ProfileViewController.swift */; };
-		603AA00C1BDC43BE00CFCFD0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA00B1BDC43BE00CFCFD0 /* SearchViewController.swift */; };
-		603AA00E1BDC43D400CFCFD0 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA00D1BDC43D400CFCFD0 /* ChatViewController.swift */; };
-		603AA0101BDC43EB00CFCFD0 /* RadarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA00F1BDC43EB00CFCFD0 /* RadarViewController.swift */; };
-		603AA0121BDC43FC00CFCFD0 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AA0111BDC43FC00CFCFD0 /* ShoppingViewController.swift */; };
 		609ACDA21BFB50AE00D4BADB /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609ACDA11BFB50AE00D4BADB /* SearchTableViewController.swift */; };
 		609ACDA41BFB5C2600D4BADB /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609ACDA31BFB5C2600D4BADB /* TestTableViewController.swift */; };
 		609B804D1C02555F00B41744 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B804C1C02555F00B41744 /* Product.swift */; };
+		609B80551C04A3B000B41744 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B80541C04A3B000B41744 /* MenuViewController.swift */; };
+		609B80591C04B47B00B41744 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B80581C04B47B00B41744 /* ProductViewController.swift */; };
+		609B805B1C04DCF800B41744 /* OtherResellersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B805A1C04DCF800B41744 /* OtherResellersTableViewController.swift */; };
+		609B805D1C04E95200B41744 /* Reseller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B805C1C04E95200B41744 /* Reseller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,13 +60,13 @@
 		603A9FFD1BDC37D200CFCFD0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		603A9FFF1BDC3DB600CFCFD0 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		603AA0091BDC43AC00CFCFD0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		603AA00B1BDC43BE00CFCFD0 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		603AA00D1BDC43D400CFCFD0 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		603AA00F1BDC43EB00CFCFD0 /* RadarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarViewController.swift; sourceTree = "<group>"; };
-		603AA0111BDC43FC00CFCFD0 /* ShoppingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		609ACDA11BFB50AE00D4BADB /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		609ACDA31BFB5C2600D4BADB /* TestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
 		609B804C1C02555F00B41744 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		609B80541C04A3B000B41744 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		609B80581C04B47B00B41744 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductViewController.swift; path = ../ProductViewController.swift; sourceTree = "<group>"; };
+		609B805A1C04DCF800B41744 /* OtherResellersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherResellersTableViewController.swift; sourceTree = "<group>"; };
+		609B805C1C04E95200B41744 /* Reseller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reseller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,17 +119,17 @@
 			children = (
 				603A9FCF1BDC336800CFCFD0 /* AppDelegate.swift */,
 				603A9FD11BDC336800CFCFD0 /* ViewController.swift */,
+				609B80581C04B47B00B41744 /* ProductViewController.swift */,
 				603A9FD31BDC336800CFCFD0 /* Main.storyboard */,
 				603AA0091BDC43AC00CFCFD0 /* ProfileViewController.swift */,
-				603AA00B1BDC43BE00CFCFD0 /* SearchViewController.swift */,
-				609ACDA11BFB50AE00D4BADB /* SearchTableViewController.swift */,
 				609B804C1C02555F00B41744 /* Product.swift */,
+				609B805C1C04E95200B41744 /* Reseller.swift */,
 				609ACDA31BFB5C2600D4BADB /* TestTableViewController.swift */,
-				603AA00D1BDC43D400CFCFD0 /* ChatViewController.swift */,
-				603AA00F1BDC43EB00CFCFD0 /* RadarViewController.swift */,
-				603AA0111BDC43FC00CFCFD0 /* ShoppingViewController.swift */,
+				609B805A1C04DCF800B41744 /* OtherResellersTableViewController.swift */,
 				603A9FFF1BDC3DB600CFCFD0 /* RegistrationViewController.swift */,
+				609B80541C04A3B000B41744 /* MenuViewController.swift */,
 				603A9FFD1BDC37D200CFCFD0 /* LoginViewController.swift */,
+				609ACDA11BFB50AE00D4BADB /* SearchTableViewController.swift */,
 				603A9FD61BDC336800CFCFD0 /* Assets.xcassets */,
 				603A9FD81BDC336800CFCFD0 /* LaunchScreen.storyboard */,
 				603A9FDB1BDC336800CFCFD0 /* Info.plist */,
@@ -287,17 +287,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				609B80551C04A3B000B41744 /* MenuViewController.swift in Sources */,
 				609ACDA41BFB5C2600D4BADB /* TestTableViewController.swift in Sources */,
-				603AA00C1BDC43BE00CFCFD0 /* SearchViewController.swift in Sources */,
-				603AA0121BDC43FC00CFCFD0 /* ShoppingViewController.swift in Sources */,
 				603A9FFE1BDC37D200CFCFD0 /* LoginViewController.swift in Sources */,
+				609B805D1C04E95200B41744 /* Reseller.swift in Sources */,
 				603A9FD21BDC336800CFCFD0 /* ViewController.swift in Sources */,
 				609B804D1C02555F00B41744 /* Product.swift in Sources */,
-				603AA00E1BDC43D400CFCFD0 /* ChatViewController.swift in Sources */,
+				609B805B1C04DCF800B41744 /* OtherResellersTableViewController.swift in Sources */,
 				603AA00A1BDC43AC00CFCFD0 /* ProfileViewController.swift in Sources */,
-				603AA0101BDC43EB00CFCFD0 /* RadarViewController.swift in Sources */,
 				609ACDA21BFB50AE00D4BADB /* SearchTableViewController.swift in Sources */,
 				603AA0001BDC3DB600CFCFD0 /* RegistrationViewController.swift in Sources */,
+				609B80591C04B47B00B41744 /* ProductViewController.swift in Sources */,
 				603A9FD01BDC336800CFCFD0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,19 +1,20 @@
 //
-//  RadarViewController.swift
+//  MenuViewController.swift
 //  Ollius
 //
-//  Created by Henrique Santiago on 10/24/15.
+//  Created by Henrique Santiago on 11/24/15.
 //  Copyright © 2015 Henrique Santiago. All rights reserved.
 //
 
 import UIKit
 
-class RadarViewController: UIViewController {
+class MenuViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {

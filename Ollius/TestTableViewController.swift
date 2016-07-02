@@ -8,22 +8,39 @@
 
 import UIKit
 
+extension Float {
+    var asLocaleCurrency:String {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.locale = NSLocale.currentLocale()
+        return formatter.stringFromNumber(self)!
+    }
+}
+
 class TestTableViewController: UITableViewController, UISearchResultsUpdating {
-    //var candies = ["chocolate Bar", "chocolate Chip", "dark chocolate", "lollipop", "candy cane", "jaw breaker", "caramel", "sour chew", "gummi bear"]
-    var candies = [String]()
-    var filteredCandies = [String]()
+    var candies = [Product]()
+    var filteredCandies = [Product]()
     var resultSearchController = UISearchController()
     
     override func viewDidLoad() {
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
-        
         self.resultSearchController.dimsBackgroundDuringPresentation = false
         self.resultSearchController.searchBar.sizeToFit()
         self.tableView.tableHeaderView = self.resultSearchController.searchBar
         
         // Reload the table
         self.tableView.reloadData()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showProduct" {
+            if let destination = segue.destinationViewController as? ProductViewController {
+                if let index = self.tableView.indexPathForSelectedRow?.row {
+                    destination.product = candies[index]
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,19 +68,32 @@ class TestTableViewController: UITableViewController, UISearchResultsUpdating {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
     
         if self.resultSearchController.active{
-            cell.textLabel?.text = self.filteredCandies[indexPath.row]
+            //cell.textLabel?.text = self.filteredCandies[indexPath.row]
+            let productImage = cell.viewWithTag(1) as! UIImageView //image
+            let productTitle = cell.viewWithTag(2) as! UILabel
+            let productBestPrice = cell.viewWithTag(3) as! UILabel
+            let productNumberOfResellers = cell.viewWithTag(4) as! UILabel
+            let productBrand = cell.viewWithTag(5) as! UILabel
+            productImage.image = UIImage(named: self.filteredCandies[indexPath.row].id)
+            productImage.layer.cornerRadius = 71/2;
+            productImage.clipsToBounds = true;
+            productTitle.text = self.filteredCandies[indexPath.row].name
             
+            let amount = Float(self.filteredCandies[indexPath.row].bestPrice)!
+            
+            productBestPrice.text = amount.asLocaleCurrency;
+            productNumberOfResellers.text = String(self.filteredCandies[indexPath.row].numberOfResellers)
+            productBrand.text = String(self.filteredCandies[indexPath.row].brand)
         }else{
-            cell.textLabel?.text = self.candies[indexPath.row]
+            let textLabel = cell.viewWithTag(2) as! UILabel
+            textLabel.text = self.candies[indexPath.row].name
+            //cell.textLabel?.text = self.candies[indexPath.row]
         }
-        //cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        
         return cell
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         self.filteredCandies.removeAll(keepCapacity: false)
-        
         //let searchPredicate = NSPredicate(format: "SELF CONTAINS [c] %@", searchController.searchBar.text!)
         
         TestTableViewController.fetchFromNetwork(searchController.searchBar.text!, completion: {(result, products) -> Void in
@@ -71,7 +101,6 @@ class TestTableViewController: UITableViewController, UISearchResultsUpdating {
                 //print(output)
                 if(output == "Success"){
                     //self.performSegueWithIdentifier("showTabBar", sender: nil)
-                    print("chegou")
                     self.candies.removeAll(keepCapacity: false)
                     for index in 0...products!.count-1{
                         self.candies.append(products![index])
@@ -94,7 +123,7 @@ class TestTableViewController: UITableViewController, UISearchResultsUpdating {
         //self.tableView.reloadData()
     }
     
-    class func fetchFromNetwork(queryText: String, completion: ((result:String?, products:[String]?) -> Void)!){
+    class func fetchFromNetwork(queryText: String, completion: ((result:String?, products:[Product]?) -> Void)!){
         let myURL = NSURL(string: "http://ec2-52-88-89-186.us-west-2.compute.amazonaws.com/getProducts.php")
         let request = NSMutableURLRequest(URL: myURL!)
         request.HTTPMethod = "POST"
@@ -118,16 +147,24 @@ class TestTableViewController: UITableViewController, UISearchResultsUpdating {
                 if let parseJSON = json {
                     let resultValue = parseJSON["status"] as? String
                     print("result: \(resultValue)")
-                    var productNames = [String]()
+                    var products = [Product]()
                     
                     if(resultValue == "Success"){
-                        let products: NSArray = parseJSON["message"] as! NSArray
+                        let productsFromDatabase: NSArray = parseJSON["message"] as! NSArray
         
-                        for index in 0...products.count-1 {
-                            if let productName = products[index]["nome"] as! String?{
-                                print(productName)
-                                productNames.append(productName)
-                            }
+                        for index in 0...productsFromDatabase.count-1 {
+                            let productName = productsFromDatabase[index]["nome"] as! String
+                            //print(productName)
+                            let productID = productsFromDatabase[index]["codigo_produto"] as? String
+                            let brandName = productsFromDatabase[index]["brandName"] as? String
+                            let bestPrice = productsFromDatabase[index]["bestPrice"] as? String
+                            let numberOfResellers = productsFromDatabase[index]["numberOfResellers"] as? String
+                            let description = productsFromDatabase[index]["descricao"] as? String
+                            let phoneNumberOfResellerWithBestPrice = productsFromDatabase[index]["resellerPhoneNumberWithBestPrice"] as? String
+                            let nameOfResellerWithBestPrice = productsFromDatabase[index]["resellerNameWithBestPrice"] as? String
+                            //print (description)
+                            let product = Product(id: productID!, name: productName, brand: brandName!, bestPrice: bestPrice!, numberOfResellers: Int(numberOfResellers!)!, description: description!, phoneNumberOfResellerWithBestPrice: phoneNumberOfResellerWithBestPrice!, nameOfResellerWithBestPrice: nameOfResellerWithBestPrice!)
+                            products.append(product)
                         }
                     }
                     //print(amountOfRecords)
@@ -135,7 +172,7 @@ class TestTableViewController: UITableViewController, UISearchResultsUpdating {
                     let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
                     dispatch_async(dispatch_get_global_queue(priority, 0)) {
                         dispatch_async(dispatch_get_main_queue()) {
-                            completion(result: resultValue, products: productNames)
+                            completion(result: resultValue, products: products)
                         }
                     }
                     //print(messageToDisplay)
@@ -146,7 +183,7 @@ class TestTableViewController: UITableViewController, UISearchResultsUpdating {
         }
         task.resume()
     }
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

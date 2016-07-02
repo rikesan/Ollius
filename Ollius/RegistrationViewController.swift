@@ -111,6 +111,10 @@ class RegistrationViewController: UIViewController {
         //performSegueWithIdentifier("registrationToLogin", sender: self)
     }
     
+    @IBAction func cancelRegistration() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func displayMyAlertMessage(userMessage: String) {
         let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert);
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)

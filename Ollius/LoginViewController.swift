@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func login() {
         LoginViewController.sendLoginRequestToServer(emailTextField, password: passwordTextField, completion: {(result, message) -> Void in
             if let output = result {
